@@ -1,7 +1,7 @@
 [[graviteeio-api-management-helm-chart]]
-== Gravitee.io API Management Helm Chart
+== Gravitee.io API Management x1 Helm Chart
 
-*Chart supported versions: 1.30.x and higher*
+== Updated to work with latest versions of kubernetes
 
 === Components
 
@@ -15,15 +15,9 @@ This chart will deploy the following:
 
 === Installing
 
-* Add the Gravitee.io helm charts repo
-+
+=== Update the requirements(MongoDB, Elasticsearch)
 ....
-$ helm repo add graviteeio https://helm.gravitee.io
-....
-* Install it
-+
-....
-$ helm install --name graviteeio-apim graviteeio/apim
+$ helm dependency update .
 ....
 
 === Create a chart archive
