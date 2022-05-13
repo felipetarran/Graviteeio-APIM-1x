@@ -13,7 +13,9 @@ This chart will deploy the following:
 * MongoDB replica-set (optional dependency)
 * Elasticsearch cluster (optional dependency)
 
-=== Installing
+== Installing
+
+=== Change the jwt field in values.yaml file
 
 === Update the requirements(MongoDB, Elasticsearch)
 ....
