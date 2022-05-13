@@ -14,7 +14,7 @@ adminEmail:
 adminFirstName:
 adminLastName:
 
-jwtSecret: a1b2c3d4
+jwtSecret: changethetoken
 
 # Define extra inMemory users here or disable the default ones here
 extraInMemoryUsers: |
