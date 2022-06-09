@@ -1,0 +1,155 @@
+apiVersion: v1
+kind: Node
+metadata:
+  annotations:
+    node.alpha.kubernetes.io/ttl: "0"
+    volumes.kubernetes.io/controller-managed-attach-detach: "true"
+  creationTimestamp: "2022-06-02T18:55:22Z"
+  labels:
+    beta.kubernetes.io/arch: amd64
+    beta.kubernetes.io/instance-type: t3.medium
+    beta.kubernetes.io/os: linux
+    eks.amazonaws.com/capacityType: ON_DEMAND
+    eks.amazonaws.com/nodegroup: node-group
+    eks.amazonaws.com/nodegroup-image: ami-0e2f7bdfc6ff574c9
+    failure-domain.beta.kubernetes.io/region: us-east-2
+    failure-domain.beta.kubernetes.io/zone: us-east-2a
+    kubernetes.io/arch: amd64
+    kubernetes.io/hostname: ip-192-168-6-61.us-east-2.compute.internal
+    kubernetes.io/os: linux
+    node.kubernetes.io/exclude-from-external-load-balancers: "true"
+    node.kubernetes.io/instance-type: t3.medium
+    topology.kubernetes.io/region: us-east-2
+    topology.kubernetes.io/zone: us-east-2a
+  name: ip-192-168-6-61.us-east-2.compute.internal
+  resourceVersion: "6980362"
+  uid: 974f0f01-b945-4d80-bc7a-bd9568dc4f64
+spec:
+  providerID: aws:///us-east-2a/i-0ce02ea5a984b825b
+  taints:
+  - effect: NoSchedule
+    key: node.kubernetes.io/unreachable
+    timeAdded: "2022-06-03T14:16:15Z"
+  - effect: NoSchedule
+    key: node.kubernetes.io/unschedulable
+    timeAdded: "2022-06-03T15:55:53Z"
+  unschedulable: false
+status:
+  addresses:
+  - address: 192.168.6.61
+    type: InternalIP
+  - address: 3.136.27.27
+    type: ExternalIP
+  - address: ip-192-168-6-61.us-east-2.compute.internal
+    type: Hostname
+  - address: ip-192-168-6-61.us-east-2.compute.internal
+    type: InternalDNS
+  - address: ec2-3-136-27-27.us-east-2.compute.amazonaws.com
+    type: ExternalDNS
+  allocatable:
+    attachable-volumes-aws-ebs: "25"
+    cpu: 1930m
+    ephemeral-storage: "18242267924"
+    hugepages-1Gi: "0"
+    hugepages-2Mi: "0"
+    memory: 3410400Ki
+    pods: "17"
+  capacity:
+    attachable-volumes-aws-ebs: "25"
+    cpu: "2"
+    ephemeral-storage: 20959212Ki
+    hugepages-1Gi: "0"
+    hugepages-2Mi: "0"
+    memory: 3965408Ki
+    pods: "17"
+  conditions:
+  - lastHeartbeatTime: "2022-06-03T14:15:15Z"
+    lastTransitionTime: "2022-06-03T14:16:15Z"
+    message: Kubelet stopped posting node status.
+    reason: NodeStatusUnknown
+    status: Unknown
+    type: MemoryPressure
+  - lastHeartbeatTime: "2022-06-03T14:15:15Z"
+    lastTransitionTime: "2022-06-03T14:16:15Z"
+    message: Kubelet stopped posting node status.
+    reason: NodeStatusUnknown
+    status: Unknown
+    type: DiskPressure
+  - lastHeartbeatTime: "2022-06-03T14:15:15Z"
+    lastTransitionTime: "2022-06-03T14:16:15Z"
+    message: Kubelet stopped posting node status.
+    reason: NodeStatusUnknown
+    status: Unknown
+    type: PIDPressure
+  - lastHeartbeatTime: "2022-06-03T14:15:15Z"
+    lastTransitionTime: "2022-06-03T14:16:15Z"
+    message: Kubelet stopped posting node status.
+    reason: NodeStatusUnknown
+    status: Unknown
+    type: Ready
+  daemonEndpoints:
+    kubeletEndpoint:
+      Port: 10250
+  images:
+  - names:
+    - docker.elastic.co/elasticsearch/elasticsearch-oss@sha256:fd37be1e11885df9777910c132133407b2f96d886bcd4a0b8edb8367b81310e0
+    - docker.elastic.co/elasticsearch/elasticsearch-oss:6.7.0
+    sizeBytes: 679748365
+  - names:
+    - graviteeio/management-api@sha256:564345057179df1d9ac397296bc9f74075cb7d6e333168f123b538dd744591be
+    - graviteeio/management-api:1.30.26
+    sizeBytes: 361226490
+  - names:
+    - graviteeio/gateway@sha256:70294244143f7ef0951f7ae006d4e1fed773eb8c2272e0bb9d5f6d09cfdbd098
+    - graviteeio/gateway:1.30.26
+    sizeBytes: 338632212
+  - names:
+    - 602401143452.dkr.ecr.us-east-2.amazonaws.com/amazon-k8s-cni@sha256:3b6db8b6fb23424366ef91d7e9e818e42291316fa81c00c2c75dcafa614340c5
+    - 602401143452.dkr.ecr.us-east-2.amazonaws.com/amazon-k8s-cni:v1.10.1-eksbuild.1
+    sizeBytes: 302003068
+  - names:
+    - k8s.gcr.io/ingress-nginx/controller@sha256:d8196e3bc1e72547c5dec66d6556c0ff92a23f6d0919b206be170bc90d5f9185
+    sizeBytes: 287854086
+  - names:
+    - 602401143452.dkr.ecr.us-east-2.amazonaws.com/amazon-k8s-cni-init@sha256:6c70af7bf257712105a89a896b2afb86c86ace865d32eb73765bf29163a08c56
+    - 602401143452.dkr.ecr.us-east-2.amazonaws.com/amazon-k8s-cni-init:v1.10.1-eksbuild.1
+    sizeBytes: 276136949
+  - names:
+    - 602401143452.dkr.ecr.us-east-2.amazonaws.com/eks/kube-proxy@sha256:0ea6717ed144c7f04922bf56662d58d5b14b7b62ef78c70e636a02d22052681c
+    - 602401143452.dkr.ecr.us-east-2.amazonaws.com/eks/kube-proxy:v1.21.2-eksbuild.2
+    sizeBytes: 130851332
+  - names:
+    - 602401143452.dkr.ecr.us-east-2.amazonaws.com/eks/coredns@sha256:fcb60ebdb0d8ec23abe46c65d0f650d9e2bf2f803fac004ceb1f0bf348db0fd0
+    - 602401143452.dkr.ecr.us-east-2.amazonaws.com/eks/coredns:v1.8.4-eksbuild.1
+    sizeBytes: 52815815
+  - names:
+    - graviteeio/management-ui@sha256:216c79af1c060586784f2bbf80bad8806de83003d4951eb30470383e24fdad6d
+    - graviteeio/management-ui:1.30.26
+    sizeBytes: 50594009
+  - names:
+    - busybox@sha256:de56395ae0788e364797f0c60464d4693c43c33cc04ec26fc3b0931b2e7c9d7d
+    - busybox:latest
+    sizeBytes: 1239756
+  - names:
+    - 602401143452.dkr.ecr.us-east-2.amazonaws.com/eks/pause@sha256:1cb4ab85a3480446f9243178395e6bee7350f0d71296daeb6a9fdd221e23aea6
+    - 602401143452.dkr.ecr.us-east-2.amazonaws.com/eks/pause:3.1-eksbuild.1
+    sizeBytes: 682696
+  nodeInfo:
+    architecture: amd64
+    bootID: 10200f6c-087d-41d7-a084-00f2b56229d6
+    containerRuntimeVersion: docker://20.10.13
+    kernelVersion: 5.4.190-107.353.amzn2.x86_64
+    kubeProxyVersion: v1.22.6-eks-7d68063
+    kubeletVersion: v1.22.6-eks-7d68063
+    machineID: ec2f91e445e8a342e9f2d4aa359bb934
+    operatingSystem: linux
+    osImage: Amazon Linux 2
+    systemUUID: ec2f91e4-45e8-a342-e9f2-d4aa359bb934
+  volumesAttached:
+  - devicePath: /dev/xvdcf
+    name: kubernetes.io/aws-ebs/aws://us-east-2a/vol-0a65a67ba7ef83865
+  - devicePath: /dev/xvdbh
+    name: kubernetes.io/aws-ebs/aws://us-east-2a/vol-042561ee7b514b3ab
+  volumesInUse:
+  - kubernetes.io/aws-ebs/aws://us-east-2a/vol-042561ee7b514b3ab
+  - kubernetes.io/aws-ebs/aws://us-east-2a/vol-0a65a67ba7ef83865

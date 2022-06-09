@@ -22,7 +22,7 @@ extraInMemoryUsers: |
     username: user
     # Password value: password
     password: $2a$10$9kjw/SH9gucCId3Lnt6EmuFreUAcXSZgpvAYuW2ISv7hSOhHRH1AO
-    roles: MANAGEMENT:USER, PORTAL:USER
+    roles: MANAGEMENT:USER, P'ORTAL:USER
     # Useful to receive notifications
     #email:
     #firstName:
@@ -131,12 +131,12 @@ notifiers:
     #   keyStorePassword:
 
 mongo:
-  # uri: mongodb://mongo-mongodb-replicaset:27017/gravitee?connectTimeoutMS=30000
-  # servers: |
-  #   - host: mongo1
-  #     port: 27017
-  #   - host: mongo2
-  #     port: 27017
+  #uri: mongodb://mongo-mongodb-replicaset:27017/gravitee?connectTimeoutMS=30000
+  servers: |
+    - host: graviteeio-apim-mongodb-replicaset-0.graviteeio-apim-mongodb-replicaset-headless.default.svc.cluster.local
+      port: 27017
+    - host: graviteeio-apim-mongodb-replicaset-1.graviteeio-apim-mongodb-replicaset-headless.default.svc.cluster.local
+      port: 27017
   sslEnabled: false
   socketKeepAlive: false
   rs: rs0
@@ -146,10 +146,10 @@ mongo:
   dbport: 27017
   connectTimeoutMS: 30000
   auth:
-    enabled: false
+    enabled: true
     source: admin
-    username:
-    password:
+    username: user
+    password: password
 
 mongodb-replicaset:
   enabled: false
@@ -211,7 +211,7 @@ es:
     - http://graviteeio-apim-elasticsearch-client.default.svc.cluster.local:9200
 
 elasticsearch:
-  enabled: false
+  enabled: true
   cluster:
     name: "elasticsearch"
     env:
@@ -387,7 +387,7 @@ api:
     path: /management
     # Used to create an Ingress record.
     hosts:
-      - apim.example.com
+      - gravitee-dev.hubdigital.dev
     annotations:
       kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/configuration-snippet: "etag on;\nproxy_pass_header ETag;\nproxy_set_header if-match \"\";\n"
@@ -399,7 +399,7 @@ api:
       #     - chart-example.local
     tls:
       - hosts:
-          - apim.example.com
+          - gravitee-dev.hubdigital.dev
         secretName: api-custom-cert
   resources:
     # We usually recommend not to specify default resources and to leave this as a conscious
@@ -488,7 +488,7 @@ gateway:
     path: /gateway
     # Used to create an Ingress record.
     hosts:
-      - apim.example.com
+      - gravitee-dev.hubdigital.dev
     annotations:
       kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
@@ -504,7 +504,7 @@ gateway:
       #     - chart-example.local
     tls:
       - hosts:
-          - apim.example.com
+          - gravitee-dev.hubdigital.dev
         secretName: api-custom-cert
   resources:
     # We usually recommend not to specify default resources and to leave this as a conscious
@@ -581,20 +581,20 @@ ui:
     path: /
     # Used to create an Ingress record.
     hosts:
-      - apim.example.com
+      - gravitee-dev.hubdigital.dev
     annotations:
       kubernetes.io/ingress.class: nginx
       kubernetes.io/app-root: /management
       kubernetes.io/rewrite-target: /management
       nginx.ingress.kubernetes.io/configuration-snippet: "etag on;\nproxy_pass_header ETag;\n"
       #tls:
-      # Secrets must be manually created in the namespace.
+      # Secrets must be manually cr*eated in the namespace.
       # - secretName: chart-example-tls
       #   hosts:
       #     - chart-example.local
     tls:
       - hosts:
-          - apim.example.com
+          - gravitee-dev.hubdigital.dev
         secretName: api-custom-cert
   resources:
     # We usually recommend not to specify default resources and to leave this as a conscious

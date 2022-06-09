@@ -1,6 +1,6 @@
 {{- if .Values.gateway.enabled -}}
 {{- if .Values.gateway.autoscaling.enabled }}
-apiVersion: autoscaling/v2beta1
+apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: {{ template "gravitee.gateway.fullname" . }}
@@ -22,12 +22,16 @@ spec:
   - type: Resource
     resource:
       name: cpu
-      targetAverageUtilization: {{ .Values.gateway.autoscaling.targetAverageUtilization }}
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.gateway.autoscaling.targetAverageUtilization }}
 {{- if .Values.gateway.autoscaling.targetMemoryAverageUtilization }}
   - type: Resource
     resource:
       name: memory
-      targetAverageUtilization: {{ .Values.gateway.autoscaling.targetMemoryAverageUtilization }}
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.gateway.autoscaling.targetMemoryAverageUtilization }}
 {{- end -}}
 {{- end -}}
 {{- end -}}
